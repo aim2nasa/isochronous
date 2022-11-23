@@ -529,14 +529,6 @@ CyFxUVCApplnInit (void)
     
     /* Set the USB Enumeration descriptors */
 
-    /* Super speed device descriptor. */
-    apiRetStatus = CyU3PUsbSetDesc(CY_U3P_USB_SET_SS_DEVICE_DESCR, 0, (uint8_t *)CyFxUSB30DeviceDscr);
-    if (apiRetStatus != CY_U3P_SUCCESS)
-    {
-        CyU3PDebugPrint (4, "USB set device descriptor failed, Error code = %d\r\n", apiRetStatus);
-        CyFxAppErrorHandler(apiRetStatus);
-    }
-
     /* High speed device descriptor. */
     apiRetStatus = CyU3PUsbSetDesc(CY_U3P_USB_SET_HS_DEVICE_DESCR, 0, (uint8_t *)CyFxUSB20DeviceDscr);
     if (apiRetStatus != CY_U3P_SUCCESS)
@@ -558,14 +550,6 @@ CyFxUVCApplnInit (void)
     if (apiRetStatus != CY_U3P_SUCCESS)
     {
         CyU3PDebugPrint (4, "USB set device qualifier descriptor failed, Error code = %d\r\n", apiRetStatus);
-        CyFxAppErrorHandler(apiRetStatus);
-    }
-
-    /* Super speed configuration descriptor */
-    apiRetStatus = CyU3PUsbSetDesc(CY_U3P_USB_SET_SS_CONFIG_DESCR, 0, (uint8_t *)CyFxUSBSSConfigDscr);
-    if (apiRetStatus != CY_U3P_SUCCESS)
-    {
-        CyU3PDebugPrint (4, "USB set configuration descriptor failed, Error code = %d\r\n", apiRetStatus);
         CyFxAppErrorHandler(apiRetStatus);
     }
 
@@ -626,7 +610,7 @@ CyFxUVCApplnInit (void)
     }
 
     /* Connect the USB pins and enable super speed operation */
-    apiRetStatus = CyU3PConnectState(CyTrue, CyTrue);
+    apiRetStatus = CyU3PConnectState(CyTrue, CyFalse);
     if (apiRetStatus != CY_U3P_SUCCESS)
     {
         CyU3PDebugPrint (4, "USB connect failed, Error Code = %d\r\n",apiRetStatus);
