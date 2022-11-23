@@ -80,20 +80,6 @@ const uint8_t CyFxUSBBOSDscr[] __attribute__ ((aligned (32))) =
     0x00,0x00                       /* U2 device exit latency */
 };
 
-/* Standard device qualifier descriptor */
-const uint8_t CyFxUSBDeviceQualDscr[] __attribute__ ((aligned (32))) =
-{
-    0x0A,                           /* descriptor size */
-    CY_U3P_USB_DEVQUAL_DESCR,       /* Device qualifier descriptor type */
-    0x00,0x02,                      /* USB 2.0 */
-    0xEF,                           /* Device class */
-    0x02,                           /* Device sub-class */
-    0x01,                           /* Device protocol */
-    0x40,                           /* Maxpacket size for EP0 : 64 bytes */
-    0x01,                           /* Number of configurations */
-    0x00                            /* Reserved */
-};
-
 /* Standard High Speed Configuration Descriptor */
 const uint8_t CyFxUSBHSConfigDscr[] __attribute__ ((aligned (32))) =
 {

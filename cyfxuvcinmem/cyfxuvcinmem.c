@@ -545,14 +545,6 @@ CyFxUVCApplnInit (void)
         CyFxAppErrorHandler(apiRetStatus);
     }
 
-    /* Device qualifier descriptor */
-    apiRetStatus = CyU3PUsbSetDesc(CY_U3P_USB_SET_DEVQUAL_DESCR, 0, (uint8_t *)CyFxUSBDeviceQualDscr);
-    if (apiRetStatus != CY_U3P_SUCCESS)
-    {
-        CyU3PDebugPrint (4, "USB set device qualifier descriptor failed, Error code = %d\r\n", apiRetStatus);
-        CyFxAppErrorHandler(apiRetStatus);
-    }
-
     /* High speed configuration descriptor */
     apiRetStatus = CyU3PUsbSetDesc(CY_U3P_USB_SET_HS_CONFIG_DESCR, 0, (uint8_t *)CyFxUSBHSConfigDscr);
     if (apiRetStatus != CY_U3P_SUCCESS)
